@@ -6,7 +6,7 @@ HEIGHT = 600
 arcade.open_window(WIDTH, HEIGHT, "Example")
 
 arcade.start_render()
-arcade.draw_text("Hola, gentes de YouTube", 350, 300, arcade.color.WHITE)
+arcade.draw_text("Hola mundo", 350, 300, arcade.color.WHITE)
 arcade.finish_render()
 
 arcade.run()
