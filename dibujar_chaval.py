@@ -1,4 +1,3 @@
-import math
 import arcade
 from arcade.types import Color
 
@@ -7,26 +6,6 @@ color_esclera = Color(255, 255, 255)
 color_pupila = Color(0, 0, 0)
 color_boca = Color(200, 100, 100)
 color_ropa = Color(50, 50, 200)
-
-class Juego(arcade.Window):
-    def __init__(self):
-        super().__init__(600, 600, "Dibujos")
-        self.x = 300
-        self.y = 300
-        self.escala = 1
-        self.brazos_abiertos = False
-        self.speed = 10
-        self.t = 0
-
-    def on_update(self, delta_time: float):
-        self.t += delta_time * (1.25 + math.sin(self.t)) * self.speed
-
-    def on_draw(self):
-        self.clear()
-        dibujar_chaval(self.x + math.sin(self.t) * 100, self.y, self.escala, self.brazos_abiertos)
-        self.escala = 1.5 + math.sin(self.t / 2.0)
-        self.brazos_abiertos = self.escala > 1
-
 
 def dibujar_chaval(x: float, y: float, escala: float, brazos_abiertos: bool) -> None:
     # Cuerpo
@@ -71,7 +50,3 @@ def dibujar_chaval(x: float, y: float, escala: float, brazos_abiertos: bool) -> 
 
     # Boca
     arcade.draw_arc_outline(x, y + 75 * escala, 80 * escala, 60 * escala, color_boca, 200, 340, 10 * escala)
-
-if __name__ == "__main__":
-    juego = Juego()
-    arcade.run()
